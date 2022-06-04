@@ -1,0 +1,18 @@
+const express=require("express")
+const { getAllUsers, addUser, update, deleteuser, getById, searchByName, reverseUsers, userAge, NameAndAge, NameAndAge2, NameAndAge3, limit, posts } = require("../config/config")
+const app=express.Router()
+
+app.get("/users",getAllUsers)
+app.post("/adduser",addUser)
+app.put('/updateuser/:id',update)
+app.delete('/delete/:id',deleteuser)
+app.get("/getById/:id",getById)
+app.post("/searchName",searchByName)
+app.get("/reverse",reverseUsers)
+app.get("/userAge",userAge)
+app.get("/NameAndAge",NameAndAge)
+app.get("/NameAndAge2",NameAndAge2)
+app.get("/NameAndAge3",NameAndAge3)
+app.get("/limit",limit)
+app.get('/posts',posts)
+module.exports=app
