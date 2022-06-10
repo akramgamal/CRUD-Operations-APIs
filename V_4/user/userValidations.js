@@ -1,0 +1,30 @@
+const joi=require("joi");
+module.exports={
+    signUpSchema:{
+        body:joi.object().required().keys({
+            name:joi.string().required(),
+            email:joi.string().required().email(),
+            password:joi.string().required(),
+            confirmPassword:joi.string().required()
+        })
+    },
+    signInSchema:{
+        body:joi.object().required().keys({
+            email:joi.string().required().email(),
+            password:joi.string().required(),
+        })
+    },
+    updateSchema:{
+        body:joi.object().required().keys({
+            name:joi.string(),
+            email:joi.string().email(),
+            password:joi.string(),
+            confirmPassword:joi.string()
+        })
+    },
+    softDeleteSchema:{
+        params:joi.object().keys({
+            id:joi.string()
+        })
+    }
+}
